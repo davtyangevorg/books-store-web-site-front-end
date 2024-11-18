@@ -1,1 +1,1 @@
-export const BACKEND_API_URL = "https://api.gevbooks.store";
+export const BACKEND_API_URL = import.meta.env.VITE_BACKEND_API_URL;
