@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://api.gevbooks.store",
+        target: "https://books-store-web-site-back-end.onrender.com/",
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, ""), // Remove '/api' from the path
