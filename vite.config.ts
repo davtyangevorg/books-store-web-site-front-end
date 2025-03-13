@@ -6,10 +6,19 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://books-store-web-site-back-end.onrender.com/",
+        target: "https://api.gevbooks.store",
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, ""), // Remove '/api' from the path
+      },
+    },
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "not-usable-content": ["./src/pages/not-usable-content/index.tsx"],
+        },
       },
     },
   },
