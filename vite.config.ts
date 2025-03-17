@@ -13,14 +13,4 @@ export default defineConfig({
       },
     },
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          "not-usable-content": ["./src/pages/not-usable-content/index.tsx"],
-          "helpers": ["./src/helpers.ts"],
-        },
-      },
-    },
-  },
 });
