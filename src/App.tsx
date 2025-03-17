@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import { FeaturedBooks } from "./pages/featured-books";
 import { Footer } from "./pages/footer";
 import Header from "./pages/header";
@@ -9,16 +9,17 @@ const NotUsableContent = lazy(() => import("./pages/not-usable-content"));
 
 function App() {
   useUser();
+  const [isOpenLazy, setIsOpenLazy] = useState(false);
 
   return (
     <>
+      <button onClick={() => setIsOpenLazy(!isOpenLazy)}>lazy load</button>
+      <Suspense fallback={<div>Loading...</div>}>
+        {isOpenLazy && <NotUsableContent />}
+      </Suspense>
       <Header />
       <FeaturedBooks />
       <Footer />
-
-      <Suspense fallback={<div>Loading...</div>}>
-        <NotUsableContent />
-      </Suspense>
     </>
   );
 }
