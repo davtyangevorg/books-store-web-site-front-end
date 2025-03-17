@@ -14,6 +14,15 @@ function App() {
   return (
     <>
       <button onClick={() => setIsOpenLazy(!isOpenLazy)}>lazy load</button>
+      <button
+        onClick={() =>
+          import("./helpers").then((module) => {
+            console.log(module.sum(1, 2));
+          })
+        }
+      >
+        sum
+      </button>
       <Suspense fallback={<div>Loading...</div>}>
         {isOpenLazy && <NotUsableContent />}
       </Suspense>

@@ -13,13 +13,13 @@ export default defineConfig({
       },
     },
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          "not-usable-content": ["./src/pages/not-usable-content/index.tsx"],
-        },
-      },
-    },
-  },
+  // build: {
+  //   rollupOptions: {
+  //     output: {
+  //       manualChunks: {
+  //         "not-usable-content": ["./src/pages/not-usable-content/index.tsx"],
+  //       },
+  //     },
+  //   },
+  // },
 });
