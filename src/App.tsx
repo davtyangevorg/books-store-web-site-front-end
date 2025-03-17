@@ -23,9 +23,11 @@ function App() {
       >
         sum
       </button>
-      <Suspense fallback={<div>Loading...</div>}>
-        {isOpenLazy && <NotUsableContent />}
-      </Suspense>
+      {isOpenLazy && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <NotUsableContent />
+        </Suspense>
+      )}
       <Header />
       <FeaturedBooks />
       <Footer />
